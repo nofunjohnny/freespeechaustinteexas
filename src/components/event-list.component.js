@@ -15,7 +15,7 @@ class eventList extends Component {
                         <th>Address</th>
                         <th>Host</th>
                         <th>Topic</th>
-                        
+                        <th>Attending</th>
                     </tr>
                 </Table>
                 </Container>
