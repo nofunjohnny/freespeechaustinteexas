@@ -5,11 +5,9 @@ class addEvent extends Component {
     render() {
         return (
             <Container>
-            <div>
-                <ButtonToolbar>
-                    <Button variant="primary" size="lg">Create New</Button>
-                </ButtonToolbar>
-            </div>
+            <div className="header">
+            
+                </div>
             </Container>
         );
     }

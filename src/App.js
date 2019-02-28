@@ -21,7 +21,7 @@ class App extends Component {
                   <Link to="/events" className="nav-link">Events</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create Event</Link>
+                  <Link to="/create" className="nav-link">Past Events</Link>
                 </li>
               </Nav>
             </Navbar.Collapse>

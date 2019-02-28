@@ -18,6 +18,17 @@ class eventList extends Component {
                         <th>Attending</th>
                     </tr>
                 </Table>
+                <form>
+                <input placeholder="Enter Date"></input>
+                <input placeholder="Time"></input>
+                <input placeholder="Venue"></input>
+                <input placeholder="Address"></input>
+                <input placeholder="Host"></input>
+                <input placeholder="Topic"></input>
+                
+            </form>
+            <button type="submit">Create Event</button>
+            <button type="submit">Cancel</button>
                 </Container>
             </div>
         );
