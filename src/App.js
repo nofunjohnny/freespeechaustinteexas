@@ -17,17 +17,18 @@ class App extends Component {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link">Events</Link>
+                  <Link to="#events" className="nav-link">Events</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create Event</Link>
+                  <Link to="#create" className="nav-link">Create Event</Link>
                 </li>
+                
               </Nav>
             </Navbar.Collapse>
           </Navbar>
           <br/>
-          <Route path="/" exact component={eventList} />
-          <Route path="/edit/:id" component={editList} />
+          <Route path="/events" exact component={eventList} />
+          <Route path="/edit" component={editList} />
           <Route path="/create" component={addEvent} />
         </TabContainer>
       </Router>
