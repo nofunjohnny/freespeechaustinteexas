@@ -10,6 +10,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Container className="App">
         <TabContainer>
           <Navbar bg="light">
             
@@ -30,6 +31,7 @@ class App extends Component {
           <Route path="/edit" component={editList} />
           <Route path="/create" component={addEvent} />
         </TabContainer>
+        </Container>
       </Router>
     );
   }
