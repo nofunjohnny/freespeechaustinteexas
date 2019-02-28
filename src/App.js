@@ -13,16 +13,15 @@ class App extends Component {
         <TabContainer>
           <Navbar bg="light">
             
-            <Navbar.Brand href="#home"><h1 className="App-header">Free Speech</h1></Navbar.Brand>
+            <Navbar.Brand href="/events"><h1 className="App-header">Free Speech</h1></Navbar.Brand>
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <li className="navbar-item">
-                  <Link to="#events" className="nav-link">Events</Link>
+                  <Link to="/events" className="nav-link">Events</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="#create" className="nav-link">Create Event</Link>
+                  <Link to="/create" className="nav-link">Create Event</Link>
                 </li>
-                
               </Nav>
             </Navbar.Collapse>
           </Navbar>
