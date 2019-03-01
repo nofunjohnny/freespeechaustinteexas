@@ -49,6 +49,10 @@ class App extends Component {
         return (
           <div class="container">
           <img src={logo} className="App-logo" alt="logo" />
+          
+          <div class="container1">
+          
+            
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -94,6 +98,7 @@ class App extends Component {
                 </table>
               </div>
             </div>
+          </div>
           </div>
         );
       }

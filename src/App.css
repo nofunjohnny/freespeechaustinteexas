@@ -1,12 +1,22 @@
 .App {
   text-align: center;
 }
+.container1 {
+  padding: 50px;
 
+}
 .App-logo {
-  
-  height: 128px;
+  height: 100px;
   align-content: center;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  
+  padding:0;
+  z-index: -1;
   
 }
 
