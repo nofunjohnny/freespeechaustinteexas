@@ -18,7 +18,7 @@ class App extends Component {
   onCollectionUpdate = (querySnapshot) => {
     const events = [];
     querySnapshot.forEach((doc) => {
-      const { date, time, venue, address, host, topic, attendees } = doc.data();
+      const { date, time, venue, address, host, topic, attendees, handicapAccess, food, price, explicit, capacity,} = doc.data();
       events.push({
       key: doc.id,
       doc, // DocumentSnapshot
@@ -29,6 +29,11 @@ class App extends Component {
       host, 
       topic, 
       attendees,
+      handicapAccess,
+      food,
+      price,
+      explicit,
+      capacity,
       });
     });
     this.setState({
@@ -43,7 +48,6 @@ class App extends Component {
        render() {
         return (
           <div class="container">
-          <img src={logo} className="App-logo" alt="logo" />
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -62,6 +66,11 @@ class App extends Component {
                       <th>Host</th>
                       <th>Topic</th>
                       <th>Attendees</th>
+                      <th>Handicap Accessible</th>
+                      <th>Food</th>
+                      <th>Price</th>
+                      <th>Explicit</th>
+                      <th>Capacity</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,6 +82,11 @@ class App extends Component {
                         <td>{event.host}</td>
                         <td>{event.topic}</td>
                         <td>{event.attendees}</td>
+                        <td>{event.handicapAccess}</td>
+                        <td>{event.food}</td>
+                        <td>{event.price}</td>
+                        <td>{event.explicit}</td>
+                        <td>{event.capacity}</td>
                       </tr>
                     )}
                   </tbody>
