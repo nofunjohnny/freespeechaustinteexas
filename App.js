@@ -43,6 +43,7 @@ class App extends Component {
        render() {
         return (
           <div class="container">
+          <img src={logo} className="App-logo" alt="logo" />
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
