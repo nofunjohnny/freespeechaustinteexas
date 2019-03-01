@@ -53,6 +53,7 @@ class App extends Component {
                 <h3 class="panel-title">
                   EVENT LIST
                 </h3>
+                //<img src={logo} className="App-logo" alt="logo" />
               </div>
               <div class="panel-body">
                 <h4><Link to="/create">Add Event</Link></h4>
