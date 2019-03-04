@@ -1,29 +1,31 @@
-import React, { Component } from 'react';
-import firebase from '../Firebase';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import firebase from "../Firebase";
+import { Link } from "react-router-dom";
 
 class Edit extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      key: '',
-      title: '',
-      description: '',
-      author: ''
+      key: "",
+      title: "",
+      description: "",
+      author: ""
     };
   }
 
   componentDidMount() {
-    const ref = firebase.firestore().collection('boards').doc(this.props.match.params.id);
-    ref.get().then((doc) => {
+    const ref = firebase
+      .firestore()
+      .collection("events")
+      .doc(this.props.match.params.id);
+    ref.get().then(doc => {
       if (doc.exists) {
-        const board = doc.data();
+        const event = doc.data();
         this.setState({
           key: doc.id,
-          title: board.title,
-          description: board.description,
-          author: board.author
+          title: event.title,
+          description: event.description,
+          author: event.author
         });
       } else {
         console.log("No such document!");
@@ -31,61 +33,146 @@ class Edit extends Component {
     });
   }
 
-  onChange = (e) => {
-    const state = this.state
+  onChange = e => {
+    const state = this.state;
     state[e.target.name] = e.target.value;
-    this.setState({board:state});
-  }
+    this.setState({ event: state });
+  };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
 
-    const { title, description, author } = this.state;
+    const {
+      date,
+      time,
+      name,
+      venue,
+      address,
+      host,
+      topic,
+      attendees,
+      handicap,
+      food,
+      price,
+      explicit,
+      capacity
+    } = this.state;
 
-    const updateRef = firebase.firestore().collection('boards').doc(this.state.key);
-    updateRef.set({
-      title,
-      description,
-      author
-    }).then((docRef) => {
-      this.setState({
-        key: '',
-        title: '',
-        description: '',
-        author: ''
+    const updateRef = firebase
+      .firestore()
+      .collection("events")
+      .doc(this.state.key);
+    updateRef
+      .set({
+        date,
+        time,
+        name,
+        venue,
+        address,
+        host,
+        topic,
+        attendees,
+        handicap,
+        food,
+        price,
+        explicit,
+        capacity
+      })
+      .then(docRef => {
+        this.setState({
+          key: "",
+          date: '',
+          time: '',
+          name: '',
+          venue: '',
+          address: '',
+          host: '',
+          topic: '',
+          attendees: '',
+          handicap: '',
+          food: '',
+          price: '',
+          explicit: '',
+          capacity: ''
+        });
+        this.props.history.push("/show/" + this.props.match.params.id);
+      })
+      .catch(error => {
+        console.error("Error adding document: ", error);
       });
-      this.props.history.push("/show/"+this.props.match.params.id)
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
-  }
+  };
 
   render() {
     return (
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">
-              EDIT BOARD
-            </h3>
+            <h3 class="panel-title">Edit event</h3>
           </div>
           <div class="panel-body">
-            <h4><Link to={`/show/${this.state.key}`} class="btn btn-primary">Board List</Link></h4>
+            <h4>
+              <Link to={`/show/${this.state.key}`} class="btn btn-primary">
+                Event List
+              </Link>
+            </h4>
             <form onSubmit={this.onSubmit}>
+              
+              
               <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" name="title" value={this.state.title} onChange={this.onChange} placeholder="Title" />
+                <label for="date">Date:</label>
+                <input type="text" class="form-control" name="date" value={this.state.date} onChange={this.onChange} placeholder="Date" />
               </div>
               <div class="form-group">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" name="description" value={this.state.description} onChange={this.onChange} placeholder="Description" />
+                <label for="time">Time:</label>
+                <input class="form-control" name="time" onChange={this.onChange} placeholder="Time" />
               </div>
               <div class="form-group">
-                <label for="author">Author:</label>
-                <input type="text" class="form-control" name="author" value={this.state.author} onChange={this.onChange} placeholder="Author" />
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" value={this.state.name} onChange={this.onChange} placeholder="Name" />
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <div class="form-group">
+                <label for="venue">Venue:</label>
+                <input type="text" class="form-control" name="venue" value={this.state.venue} onChange={this.onChange} placeholder="Venue" />
+              </div>
+              <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" name="address" value={this.state.address} onChange={this.onChange} placeholder="Address" />
+              </div>
+              <div class="form-group">
+                <label for="host">Host:</label>
+                <input type="text" class="form-control" name="host" value={this.state.host} onChange={this.onChange} placeholder="Host" />
+              </div>
+              <div class="form-group">
+                <label for="topic">Topic:</label>
+                <input type="text" class="form-control" name="topic" value={this.state.topic} onChange={this.onChange} placeholder="Topic" />
+              </div>
+              <div class="form-group">
+                <label for="attendees">Attendees:</label>
+                <input type="text" class="form-control" name="attendees" value={this.state.attendees} onChange={this.onChange} placeholder="Attendees" />
+              </div>
+              <div class="form-group">
+                <label for="handicap">Handicap:</label>
+                <input type="text" class="form-control" name="handicap" value={this.state.handicap} onChange={this.onChange} placeholder="Handicap" />
+              </div>
+              <div class="form-group">
+                <label for="food">Food:</label>
+                <input type="text" class="form-control" name="food" value={this.state.food} onChange={this.onChange} placeholder="Food" />
+              </div>
+              <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" class="form-control" name="price" value={this.state.price} onChange={this.onChange} placeholder="Price" />
+              </div>
+              <div class="form-group">
+                <label for="explicit">Explicit:</label>
+                <input type="text" class="form-control" name="explicit" value={this.state.explicit} onChange={this.onChange} placeholder="Explicit" />
+              </div>
+              <div class="form-group">
+                <label for="capacity">Capacity:</label>
+                <input type="text" class="form-control" name="capacity" value={this.state.capacity} onChange={this.onChange} placeholder="Capacity" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                Submit
+              </button>
             </form>
           </div>
         </div>

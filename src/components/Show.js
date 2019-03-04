@@ -30,7 +30,7 @@ class Show extends Component {
   delete(id){
     firebase.firestore().collection('events').doc(id).delete().then(() => {
       console.log("Document successfully deleted!");
-Event.props.history.push("/")
+      this.props.history.push("/")
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
@@ -41,25 +41,29 @@ Event.props.history.push("/")
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
-          <h4><Link to="/">Event List</Link></h4>
+          <h4><Link to="/">event List</Link></h4>
             <h3 class="panel-title">
-              {this.state.event.title}
+              {this.state.event.date}
             </h3>
           </div>
           <div class="panel-body">
             <dl>
               <dt>Time:</dt>
               <dd>{this.state.event.time}</dd>
+              <dt>Name:</dt>
+              <dd>{this.state.event.name}</dd>
               <dt>Venue:</dt>
               <dd>{this.state.event.venue}</dd>
               <dt>Address:</dt>
               <dd>{this.state.event.address}</dd>
               <dt>Host:</dt>
               <dd>{this.state.event.host}</dd>
+              <dt>Topic:</dt>
+              <dd>{this.state.event.topic}</dd>
               <dt>Attendees:</dt>
               <dd>{this.state.event.attendees}</dd>
-              <dt>Handicap Access:</dt>
-              <dd>{this.state.event.handicapAccess}</dd>
+              <dt>Handicap:</dt>
+              <dd>{this.state.event.handicap}</dd>
               <dt>Food:</dt>
               <dd>{this.state.event.food}</dd>
               <dt>Price:</dt>
