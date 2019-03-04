@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import firebase from "./Firebase";
 import Clicks from './components/Clicks.js';
-import { Flex, Box } from 'reflexbox';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -73,49 +75,34 @@ class App extends Component {
                 Add event
               </Link>
             </h4>
-            <Flex  wrap align='center' w={1} px={3} py={4}>
-            <table class="table table-stripe">
-              <thead>
-               
-                  <th>Date:</th>
-                  <th>Time:</th>
-                  <th>Name:</th>
-                  <th>Venue:</th>
-                  <th>Address:</th>
-                  <th>Host:</th>
-                  <th>Topic:</th>
-                  <th>Attendees:</th>
-                  <th>Handicap:</th>
-                  <th>Food:</th>
-                  <th>Price:</th>
-                  <th>Explicit:</th>
-                  <th>Capacity:</th>
-                  
-              </thead>
+            
+            <Table>
+              
               <tbody>
                 {this.state.events.map(event => (
                   <tr>
-                    <td>
-                      <Link to={`/show/${event.key}`}>{event.date}</Link>
+                    
+                    <td data-label='Date'>
+                      <Link to={`/show/${event.key}`}><strong>Date: </strong>{event.date}</Link>
                     </td>
-                    <td>{event.time}</td>
-                    <td>{event.name}</td>
-                    <td>{event.venue}</td>
-                    <td>{event.address}</td>
-                    <td>{event.host}</td>
-                    <td>{event.topic}</td>
-                    <td>{event.attendees}<Clicks /></td>
-                    <td>{event.handicap}</td>
-                    <td>{event.food}</td>
-                    <td>{event.price}</td>
-                    <td>{event.explicit}</td>
-                    <td>{event.capacity}</td>
+                    <td data-label='Time'><strong>Time: </strong>{event.time}</td>
+                    <td data-label='Name'><strong>Name: </strong>{event.name}</td>
+                    <td data-label='Venue'><strong>Venue: </strong>{event.venue}</td>
+                    <td data-label='Address'><strong>Address: </strong>{event.address}</td>
+                    <td data-label='Host'><strong>Host: </strong>{event.host}</td>
+                    <td data-label='Topic'><strong>Topic: </strong>{event.topic}</td>
+                    <td data-label='Attendees'><strong>Attendees: </strong>{event.attendees}<Clicks /></td>
+                    <td data-label='Handicap'><strong>Handicap: </strong>{event.handicap}</td>
+                    <td data-label='Food'><strong>Food: </strong>{event.food}</td>
+                    <td data-label='Price'><strong>Price: </strong>{event.price}</td>
+                    <td data-label='Explicit'><strong>Explicit: </strong>{event.explicit}</td>
+                    <td data-label='Capacity'><strong>Capacity: </strong>{event.capacity}</td>
                   </tr>
                 ))}
                 
               </tbody>
-            </table>
-            </Flex>
+            </Table>
+            
           </div>
         </div>
       </div>

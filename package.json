@@ -7,8 +7,10 @@
     "react": "^16.5.2",
     "react-datepicker": "^2.1.0",
     "react-dom": "^16.5.2",
+    "react-hyper-responsive-table": "^0.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
+    "react-super-responsive-table": "^4.3.5",
     "reflexbox": "^3.0.1"
   },
   "scripts": {

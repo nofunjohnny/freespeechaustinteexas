@@ -16,7 +16,7 @@ class Clicks extends React.Component {
     }
     
     render() {
-    	return <button class="btn btn-info" onClick={this.handleClick.bind(this)}>{this.state.clicks}People Going</button>
+    	return <button class="btn btn-secondary btn-sm" onClick={this.handleClick.bind(this)}>{this.state.clicks}People Going</button>
     }
     
 }
