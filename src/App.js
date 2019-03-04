@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import firebase from "./Firebase";
 import Clicks from './components/Clicks.js';
+import { Flex, Box } from 'reflexbox';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,7 @@ class App extends Component {
     const events = [];
     querySnapshot.forEach(doc => {
       const {
-        datepicker,
+        date,
         time,
         name,
         venue,
@@ -34,7 +35,7 @@ class App extends Component {
       events.push({
         key: doc.id,
         doc, // DocumentSnapshot
-        datepicker,
+        date,
         time,
         name,
         venue,
@@ -72,9 +73,10 @@ class App extends Component {
                 Add event
               </Link>
             </h4>
+            <Flex  wrap align='center' w={1} px={3} py={4}>
             <table class="table table-stripe">
               <thead>
-                <tr>
+               
                   <th>Date:</th>
                   <th>Time:</th>
                   <th>Name:</th>
@@ -88,13 +90,13 @@ class App extends Component {
                   <th>Price:</th>
                   <th>Explicit:</th>
                   <th>Capacity:</th>
-                </tr>
+                  
               </thead>
               <tbody>
                 {this.state.events.map(event => (
                   <tr>
                     <td>
-                      <Link to={`/show/${event.key}`}>{event.datepicker}</Link>
+                      <Link to={`/show/${event.key}`}>{event.date}</Link>
                     </td>
                     <td>{event.time}</td>
                     <td>{event.name}</td>
@@ -110,8 +112,10 @@ class App extends Component {
                     <td>{event.capacity}</td>
                   </tr>
                 ))}
+                
               </tbody>
             </table>
+            </Flex>
           </div>
         </div>
       </div>
