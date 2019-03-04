@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
 import firebase from "./Firebase";
-
+import Clicks from './components/Clicks.js';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class App extends Component {
     const events = [];
     querySnapshot.forEach(doc => {
       const {
-        date,
+        datepicker,
         time,
         name,
         venue,
@@ -34,7 +34,7 @@ class App extends Component {
       events.push({
         key: doc.id,
         doc, // DocumentSnapshot
-        date,
+        datepicker,
         time,
         name,
         venue,
@@ -94,7 +94,7 @@ class App extends Component {
                 {this.state.events.map(event => (
                   <tr>
                     <td>
-                      <Link to={`/show/${event.key}`}>{event.date}</Link>
+                      <Link to={`/show/${event.key}`}>{event.datepicker}</Link>
                     </td>
                     <td>{event.time}</td>
                     <td>{event.name}</td>
@@ -102,7 +102,7 @@ class App extends Component {
                     <td>{event.address}</td>
                     <td>{event.host}</td>
                     <td>{event.topic}</td>
-                    <td>{event.attendees}</td>
+                    <td>{event.attendees}<Clicks /></td>
                     <td>{event.handicap}</td>
                     <td>{event.food}</td>
                     <td>{event.price}</td>
