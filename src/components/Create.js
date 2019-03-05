@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import firebase from '../Firebase';
 import { Link } from 'react-router-dom';
+import { Row, Col, Form, Container } from 'react-bootstrap';
 
 class Create extends Component {
 
@@ -83,62 +84,77 @@ class Create extends Component {
             </h3>
           </div>
           <div class="panel-body">
-            <h4><Link to="/" class="btn btn-primary">Event List</Link></h4>
-            <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="text" class="form-control" name="date" value={date} onChange={this.onChange} placeholder="Date" />
-              </div>
-              <div class="form-group">
-                <label for="time">Time:</label>
-                <input class="form-control" name="time" onChange={this.onChange} value={time} placeholder="Time" />
-              </div>
-              <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" />
-              </div>
-              <div class="form-group">
-                <label for="venue">Venue:</label>
-                <input type="text" class="form-control" name="venue" value={venue} onChange={this.onChange} placeholder="Venue" />
-              </div>
-              <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" class="form-control" name="address" value={address} onChange={this.onChange} placeholder="Address" />
-              </div>
-              <div class="form-group">
-                <label for="host">Host:</label>
-                <input type="text" class="form-control" name="host" value={host} onChange={this.onChange} placeholder="Host" />
-              </div>
-              <div class="form-group">
-                <label for="topic">Topic:</label>
-                <input type="text" class="form-control" name="topic" value={topic} onChange={this.onChange} placeholder="Topic" />
-              </div>
-              <div class="form-group">
-                <label for="attendees">Attendees:</label>
-                <input type="text" class="form-control" name="attendees" value={attendees} onChange={this.onChange} placeholder="Attendees" />
-              </div>
-              <div class="form-group">
-                <label for="handicap">Handicap:</label>
-                <input type="text" class="form-control" name="handicap" value={handicap} onChange={this.onChange} placeholder="Handicap" />
-              </div>
-              <div class="form-group">
-                <label for="food">Food:</label>
-                <input type="text" class="form-control" name="food" value={food} onChange={this.onChange} placeholder="Food" />
-              </div>
-              <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="text" class="form-control" name="price" value={price} onChange={this.onChange} placeholder="Price" />
-              </div>
-              <div class="form-group">
-                <label for="explicit">Explicit:</label>
-                <input type="text" class="form-control" name="explicit" value={explicit} onChange={this.onChange} placeholder="Explicit" />
-              </div>
-              <div class="form-group">
-                <label for="capacity">Capacity:</label>
-                <input type="text" class="form-control" name="capacity" value={capacity} onChange={this.onChange} placeholder="Capacity" />
-              </div>
-              <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+            
+              <Form>
+                <Row>
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="date" value={date} onChange={this.onChange} placeholder="Date" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' class="form-control" name="time" onChange={this.onChange} value={time} placeholder="Time" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="venue" value={venue} onChange={this.onChange} placeholder="Venue" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="address" value={address} onChange={this.onChange} placeholder="Address" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="host" value={host} onChange={this.onChange} placeholder="Host" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="topic" value={topic} onChange={this.onChange} placeholder="Topic" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="attendees" value={attendees} onChange={this.onChange} placeholder="Attendees" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="handicap" value={handicap} onChange={this.onChange} placeholder="Handicap" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="food" value={food} onChange={this.onChange} placeholder="Food" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="price" value={price} onChange={this.onChange} placeholder="Price" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="explicit" value={explicit} onChange={this.onChange} placeholder="Explicit" />
+                </Col>
+              
+              
+                <Col>
+                <Form.Control size='sm' type="text" class="form-control" name="capacity" value={capacity} onChange={this.onChange} placeholder="Capacity" />
+                              </Col>
+                              </Row>              
+              
+              
+            </Form>
+            <button type="submit" class="btn btn-success">Submit</button>
           </div>
         </div>
       </div>

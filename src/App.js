@@ -5,6 +5,7 @@ import firebase from "./Firebase";
 import Clicks from './components/Clicks.js';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import Create  from './components/Create';
 
 class App extends Component {
   constructor(props) {
@@ -71,9 +72,7 @@ class App extends Component {
           </div>
           <div class="panel-body">
             <h4>
-              <Link to="/create" class="btn btn-primary">
-                Add event
-              </Link>
+
             </h4>
             
             <Table>
@@ -102,7 +101,7 @@ class App extends Component {
                 
               </tbody>
             </Table>
-            
+            <Create />
           </div>
         </div>
       </div>
