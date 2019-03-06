@@ -76,7 +76,7 @@ class App extends Component {
             </h4>
             
             <Table>
-              
+            <Create />  
               <tbody>
                 {this.state.events.map(event => (
                   <tr>
@@ -101,7 +101,7 @@ class App extends Component {
                 
               </tbody>
             </Table>
-            <Create />
+            
           </div>
         </div>
       </div>
